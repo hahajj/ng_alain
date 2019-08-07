@@ -8,8 +8,8 @@ import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
   template: `
     <nz-dropdown nzPlacement="bottomRight">
       <div class="alain-default__nav-item d-flex align-items-center px-sm" nz-dropdown>
-        <nz-avatar [nzSrc]="settings.user.avatar" nzSize="small" class="mr-sm"></nz-avatar>
-        {{ settings.user.name }}
+        <nz-avatar [nzSrc]="settings.avatar"  nzSize="small" class="mr-sm"></nz-avatar>
+        {{ settings.name }}
       </div>
       <div nz-menu class="width-sm">
         <div nz-menu-item routerLink="/pro/account/center">
@@ -35,11 +35,13 @@ import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderUserComponent {
+  settings = JSON.parse(localStorage.getItem("_token"))
   constructor(
-    public settings: SettingsService,
+    // public settings: SettingsService,
     private router: Router,
     @Inject(DA_SERVICE_TOKEN) private tokenService: ITokenService,
-  ) {}
+  ) { }
+
 
   logout() {
     this.tokenService.clear();

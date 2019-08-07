@@ -9,12 +9,13 @@
         </div>
         <div class="detail">
           <p><i class="title"></i>{{ user.title }}</p>
-          <p><i class="group"></i>{{ user.group }}</p>
-          <p>
+          <p><i class="group"></i>{{ user.groupName }}</p>
+          <!-- <p><i class="group"></i>{{ user.group }}</p> -->
+          <!-- <p>
             <i class="address"></i>
             {{ user.geographic.province.label }}
             {{ user.geographic.city.label }}
-          </p>
+          </p> -->
         </div>
         <nz-divider nzDashed></nz-divider>
         <div class="tags">
@@ -23,17 +24,8 @@
           <nz-tag *ngIf="!taging" (click)="tagShowIpt()" class="ant-tag__plus">
             <i nz-icon nzType="plus"></i>
           </nz-tag>
-          <input
-            *ngIf="taging"
-            #tagInput
-            nz-input
-            [(ngModel)]="tagValue"
-            (blur)="tagBlur()"
-            (keydown)="tagEnter($event)"
-            nzSize="small"
-            type="text"
-            style="width: 78px"
-          />
+          <input *ngIf="taging" #tagInput nz-input [(ngModel)]="tagValue" (blur)="tagBlur()"
+            (keydown)="tagEnter($event)" nzSize="small" type="text" style="width: 78px" />
         </div>
         <nz-divider nzDashed></nz-divider>
         <div class="team">

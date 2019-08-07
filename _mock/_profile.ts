@@ -36,7 +36,7 @@ const basicGoods = [
 const basicProgress = [
   {
     key: '1',
-    time: '2017-10-01 14:10',
+    time: '2019-10-01 14:10',
     rate: '联系客户',
     status: 'processing',
     operator: '取货员 ID1234',
@@ -44,7 +44,7 @@ const basicProgress = [
   },
   {
     key: '2',
-    time: '2017-10-01 14:05',
+    time: '2019-10-01 14:05',
     rate: '取货员出发',
     status: 'success',
     operator: '取货员 ID1234',
@@ -52,7 +52,7 @@ const basicProgress = [
   },
   {
     key: '3',
-    time: '2017-10-01 13:05',
+    time: '2019-10-01 13:05',
     rate: '取货员接单',
     status: 'success',
     operator: '取货员 ID1234',
@@ -60,7 +60,7 @@ const basicProgress = [
   },
   {
     key: '4',
-    time: '2017-10-01 13:00',
+    time: '2019-10-01 13:00',
     rate: '申请审批通过',
     status: 'success',
     operator: '系统',
@@ -68,7 +68,7 @@ const basicProgress = [
   },
   {
     key: '5',
-    time: '2017-10-01 12:00',
+    time: '2019-10-01 12:00',
     rate: '发起退货申请',
     status: 'success',
     operator: '用户',
@@ -82,7 +82,7 @@ const advancedOperation1 = [
     type: '订购关系生效',
     name: '曲丽丽',
     status: 'agree',
-    updatedAt: '2017-10-03  19:23:12',
+    updatedAt: '2019-10-03  19:23:12',
     memo: '-',
   },
   {
@@ -90,7 +90,7 @@ const advancedOperation1 = [
     type: '财务复审',
     name: '付小小',
     status: 'reject',
-    updatedAt: '2017-10-03  19:23:12',
+    updatedAt: '2019-10-03  19:23:12',
     memo: '不通过原因',
   },
   {
@@ -98,7 +98,7 @@ const advancedOperation1 = [
     type: '部门初审',
     name: '周毛毛',
     status: 'agree',
-    updatedAt: '2017-10-03  19:23:12',
+    updatedAt: '2019-10-03  19:23:12',
     memo: '-',
   },
   {
@@ -106,7 +106,7 @@ const advancedOperation1 = [
     type: '提交订单',
     name: 'hahajj',
     status: 'agree',
-    updatedAt: '2017-10-03  19:23:12',
+    updatedAt: '2019-10-03  19:23:12',
     memo: '很棒',
   },
   {
@@ -114,7 +114,7 @@ const advancedOperation1 = [
     type: '创建订单',
     name: '汗牙牙',
     status: 'agree',
-    updatedAt: '2017-10-03  19:23:12',
+    updatedAt: '2019-10-03  19:23:12',
     memo: '-',
   },
 ];
@@ -125,7 +125,7 @@ const advancedOperation2 = [
     type: '订购关系生效',
     name: '曲丽丽',
     status: 'agree',
-    updatedAt: '2017-10-03  19:23:12',
+    updatedAt: '2019-10-03  19:23:12',
     memo: '-',
   },
 ];
@@ -136,7 +136,7 @@ const advancedOperation3 = [
     type: '创建订单',
     name: '汗牙牙',
     status: 'agree',
-    updatedAt: '2017-10-03  19:23:12',
+    updatedAt: '2019-10-03  19:23:12',
     memo: '-',
   },
 ];
