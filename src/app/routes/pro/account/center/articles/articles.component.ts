@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-account-center-articles',
@@ -8,9 +9,12 @@ import { _HttpClient } from '@delon/theme';
 })
 export class ProAccountCenterArticlesComponent {
   list: any[];
+  imgSrc = JSON.parse(localStorage.getItem("_token")).avatar
+
   constructor(private http: _HttpClient, private cdr: ChangeDetectorRef) {
-    this.http.get('/api/list', { count: 8 }).subscribe((res: any) => {
-      this.list = res;
+    console.log(this.imgSrc)
+    this.http.post('http://192.168.1.229:8022/angular/articles', { pageNum: 8, id: JSON.parse(localStorage.getItem("_token")).id }).subscribe((res: any) => {
+      this.list = res.data;
       this.cdr.detectChanges();
     });
   }

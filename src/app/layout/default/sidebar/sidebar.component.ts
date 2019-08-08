@@ -25,7 +25,6 @@ export class SidebarComponent {
         id: JSON.parse(localStorage.getItem("_token")).id
       })
       .subscribe((res: any) => {
-        console.log(res)
         if (res.code != 1) {
           return;
         }

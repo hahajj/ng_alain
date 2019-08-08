@@ -54,7 +54,6 @@ export class ProBasicListComponent implements OnInit {
   }
   openEdit(record: any = {}) {
     this.modal.create(ProBasicListEditComponent, { record }, { size: 'md' }).subscribe(res => {
-      // console.log(res)
       // if (record.id) {
       //   record = { ...record, id: 'mock_id', percent: 0, ...res };
       // } else {

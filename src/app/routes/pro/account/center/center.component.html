@@ -10,6 +10,11 @@
         <div class="detail">
           <p><i class="title"></i>{{ user.title }}</p>
           <p><i class="group"></i>{{ user.groupName }}</p>
+          <p>
+            <i class="address"></i>
+            {{ user.province }}
+            {{ user.city }}
+          </p>
           <!-- <p><i class="group"></i>{{ user.group }}</p> -->
           <!-- <p>
             <i class="address"></i>
@@ -20,7 +25,7 @@
         <nz-divider nzDashed></nz-divider>
         <div class="tags">
           <div class="tagsTitle">标签</div>
-          <nz-tag *ngFor="let t of user.tags">{{ t.label }}</nz-tag>
+          <nz-tag *ngFor="let t of tags">{{ t.label }}</nz-tag>
           <nz-tag *ngIf="!taging" (click)="tagShowIpt()" class="ant-tag__plus">
             <i nz-icon nzType="plus"></i>
           </nz-tag>
@@ -33,7 +38,7 @@
           <nz-spin [nzSpinning]="!notice">
             <div nz-row nzGutter="36">
               <div nz-col *ngFor="let t of notice" nzLg="24" nzXl="12">
-                <a href="#" class="text-truncate">
+                <a class="text-truncate">
                   <nz-avatar [nzSrc]="t.logo" nzSize="small"></nz-avatar>
                   {{ t.member }}
                 </a>
