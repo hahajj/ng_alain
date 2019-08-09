@@ -19,14 +19,19 @@ import { UserRegisterResultComponent } from './passport/register-result/register
 import { CallbackComponent } from './callback/callback.component';
 import { UserLockComponent } from './passport/lock/lock.component';
 
+import { LoginGuard } from '@shared/login-guard/login-guard';
+
 const routes: Routes = [
   {
     path: '',
     component: LayoutDefaultComponent,
     canActivate: [SimpleGuard],
     canActivateChild: [SimpleGuard],
+
+    // canActivate: [LoginGuard],
+    // canActivateChild: [LoginGuard],
     children: [
-      { path: '', redirectTo: 'dashboard/v1', pathMatch: 'full' },
+      { path: '', redirectTo: 'dashboard/v1', pathMatch: 'full', },
       { path: 'dashboard', redirectTo: 'dashboard/v1', pathMatch: 'full' },
       { path: 'dashboard/v1', component: DashboardV1Component },
       { path: 'dashboard/analysis', component: DashboardAnalysisComponent },
@@ -36,7 +41,7 @@ const routes: Routes = [
         path: 'widgets',
         loadChildren: './widgets/widgets.module#WidgetsModule',
       },
-      { path: 'style', loadChildren: './style/style.module#StyleModule' },
+      { path: 'style', loadChildren: './style/style.module#StyleModule', data: { pro: false } },
       { path: 'delon', loadChildren: './delon/delon.module#DelonModule' },
       { path: 'extras', loadChildren: './extras/extras.module#ExtrasModule' },
       { path: 'pro', loadChildren: './pro/pro.module#ProModule' },
@@ -93,4 +98,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class RouteRoutingModule {}
+export class RouteRoutingModule { }

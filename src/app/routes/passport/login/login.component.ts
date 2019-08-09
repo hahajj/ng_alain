@@ -93,7 +93,6 @@ export class UserLoginComponent implements OnDestroy {
       this.userName.updateValueAndValidity();
       this.password.markAsDirty();
       this.password.updateValueAndValidity();
-      console.log(11)
       if (this.userName.invalid || this.password.invalid) {
         return;
       }

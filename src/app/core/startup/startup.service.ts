@@ -58,14 +58,21 @@ export class StartupService {
             // 用户信息：包括姓名、头像、邮箱地址
             this.settingService.setUser(res.user);
             // ACL：设置权限为全量
-            this.aclService.setFull(true);
+            if (JSON.parse(localStorage.getItem("_token")).type === 1) {
+              this.aclService.setFull(true);
+            } else {
+              this.aclService.setFull(false);
+              // this.aclService.setRole(['role-a']);
+            }
+
             // 初始化菜单
             this.menuService.add(res.menu);
             // 设置页面标题的后缀
             this.titleService.default = '';
             this.titleService.suffix = res.app.name;
+
           },
-          () => {},
+          () => { },
           () => {
             resolve(null);
           },

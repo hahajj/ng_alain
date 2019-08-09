@@ -11,7 +11,7 @@ export class ACLComponent {
   roleA = '';
   roleB = '';
 
-  constructor(public aclSrv: ACLService, private menuSrv: MenuService) {}
+  constructor(public aclSrv: ACLService, private menuSrv: MenuService) { }
 
   private reMenu() {
     this.menuSrv.resume();
@@ -28,6 +28,7 @@ export class ACLComponent {
     this.roleA = this.roleA === 'role-a' ? '' : 'role-a';
     this.aclSrv.setFull(this.full);
     this.aclSrv.setRole([this.roleA]);
+    console.log(this.aclSrv)
     this.reMenu();
   }
 

@@ -46,7 +46,7 @@ export class HeaderI18nComponent {
     private settings: SettingsService,
     @Inject(ALAIN_I18N_TOKEN) private i18n: I18NService,
     @Inject(DOCUMENT) private doc: any,
-  ) {}
+  ) { }
 
   change(lang: string) {
     const spinEl = this.doc.createElement('div');
