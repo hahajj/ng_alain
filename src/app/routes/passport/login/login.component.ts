@@ -156,9 +156,10 @@ export class UserLoginComponent implements OnDestroy {
           email: `${this.userName.value}@qq.com`,
           id: res.data.id,
           time: +new Date(),
-          avatar: res.data.avatar
+          avatar: res.data.avatar,
+          type: res.data.type
         });
-
+        this.startupSrv.load()
         // 重新获取 StartupService 内容，我们始终认为应用信息一般都会受当前用户授权范围而影响
         this.startupSrv.load().then(() => {
           let url = this.tokenService.referrer!.url || '/';

@@ -40,13 +40,14 @@ export class LoginGuard implements CanActivate, CanActivateChild {
         }
     }
     private logIn() {
-        // const token = sessionStorage.getItem('token');
-        // if (!token) {
-        //     this.goTo('/passport/login');
-        //     return false;
-        // } else {
-        //     return true;
-        // }
+        const token = localStorage.getItem('token');
+        console.log(123)
+        if (!token) {
+            this.goTo('/passport/login');
+            return false;
+        } else {
+            return true;
+        }
         return true;
     }
     private goTo(url: string) {

@@ -58,11 +58,15 @@ export class StartupService {
             // 用户信息：包括姓名、头像、邮箱地址
             this.settingService.setUser(res.user);
             // ACL：设置权限为全量
-            if (JSON.parse(localStorage.getItem("_token")).type === 1) {
-              this.aclService.setFull(true);
-            } else {
+            try {
+              if (JSON.parse(localStorage.getItem("_token")).type == 1) {
+                this.aclService.setFull(true);
+              } else {
+                this.aclService.setFull(false);
+                this.aclService.setRole(['role-a']);
+              }
+            } catch (error) {
               this.aclService.setFull(false);
-              // this.aclService.setRole(['role-a']);
             }
 
             // 初始化菜单

@@ -64,4 +64,4 @@ const COMPONENTS_NOROUNT = [Step1Component, Step2Component, Step3Component, ProB
   declarations: [...COMPONENTS, ...COMPONENTS_NOROUNT],
   entryComponents: COMPONENTS_NOROUNT,
 })
-export class ProModule {}
+export class ProModule { }

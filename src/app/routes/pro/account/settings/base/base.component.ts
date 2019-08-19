@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy, OnInit, ChangeDetectorRef } from '@
 import { _HttpClient } from '@delon/theme';
 import { zip } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd';
+import { Router, ActivationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-account-settings-base',
@@ -14,14 +15,14 @@ export class ProAccountSettingsBaseComponent implements OnInit {
   userLoading = true;
   user: any;
 
-  constructor(private http: _HttpClient, private cdr: ChangeDetectorRef, private msg: NzMessageService) {}
+  constructor(private http: _HttpClient, private cdr: ChangeDetectorRef, private msg: NzMessageService, private router: Router) { }
 
   ngOnInit(): void {
-    zip(this.http.get('/user/current'), this.http.get('/geo/province')).subscribe(([user, province]: any) => {
+    zip(this.http.post('http://192.168.1.229:8022/angular/userInfo', { id: JSON.parse(localStorage.getItem("_token")).id }), this.http.get('/geo/province')).subscribe(([user, province]: any) => {
       this.userLoading = false;
-      this.user = user;
+      this.user = user.data.info;
       this.provinces = province;
-      this.choProvince(user.geographic.province.key, false);
+      // this.choProvince(user.geographic.province.key, false);
       this.cdr.detectChanges();
     });
   }
@@ -41,8 +42,18 @@ export class ProAccountSettingsBaseComponent implements OnInit {
 
   // #endregion
 
-  save() {
-    this.msg.success(JSON.stringify(this.user));
-    return false;
+  save(): void {
+    const obj = this.user;
+    obj.id = JSON.parse(localStorage.getItem("_token")).id;
+    this.http
+      .post('http://192.168.1.229:8022/angular/changeInfo', obj)
+      .subscribe((res: any) => {
+        if (res.code == 1) {
+          this.msg.success("更新成功！");
+          this.router.navigateByUrl(`/pro/account/center/articles`)
+        } else {
+          this.msg.success("网络故障！");
+        }
+      })
   }
 }

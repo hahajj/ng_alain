@@ -14,26 +14,26 @@
       "group": true,
       "hideInBreadcrumb": true,
       "children": [{
-        "text": "仪表盘",
+        "text": "图表",
         "i18n": "menu.dashboard",
         "icon": "anticon-dashboard",
         "children": [{
-            "text": "仪表盘V1",
+            "text": "图表1",
             "link": "/dashboard/v1",
             "i18n": "menu.dashboard.v1"
           },
           {
-            "text": "分析页",
+            "text": "图表2",
             "link": "/dashboard/analysis",
             "i18n": "menu.dashboard.analysis"
           },
           {
-            "text": "监控页",
+            "text": "图表3",
             "link": "/dashboard/monitor",
             "i18n": "menu.dashboard.monitor"
           },
           {
-            "text": "工作台",
+            "text": "图表4",
             "link": "/dashboard/workplace",
             "i18n": "menu.dashboard.workplace"
           }
@@ -97,11 +97,7 @@
               "link": "/delon/qr",
               "i18n": "menu.delon.qr"
             },
-            {
-              "text": "ACL",
-              "link": "/delon/acl",
-              "i18n": "menu.delon.acl"
-            },
+
             {
               "text": "Route Guard",
               "link": "/delon/guard",
@@ -126,6 +122,11 @@
               "text": "Zip",
               "link": "/delon/zip",
               "i18n": "menu.delon.zip"
+            },
+            {
+              "text": "ACL",
+              "link": "/delon/acl",
+              "i18n": "menu.delon.acl"
             }
           ]
         }
@@ -136,29 +137,8 @@
       "i18n": "menu.pro",
       "group": true,
       "hideInBreadcrumb": true,
+      "hideChildrenInMenu": true,
       "children": [{
-          "text": "Form Page",
-          "i18n": "menu.form",
-          "link": "/pro/form",
-          "icon": "anticon-edit",
-          "children": [{
-              "text": "Basic Form",
-              "link": "/pro/form/basic-form",
-              "i18n": "menu.form.basicform"
-            },
-            {
-              "text": "Step Form",
-              "link": "/pro/form/step-form",
-              "i18n": "menu.form.stepform"
-            },
-            {
-              "text": "Advanced Form",
-              "link": "/pro/form/advanced-form",
-              "i18n": "menu.form.advancedform"
-            }
-          ]
-        },
-        {
           "text": "List",
           "i18n": "menu.list",
           "icon": "anticon-appstore",
@@ -233,6 +213,7 @@
           "i18n": "menu.exception",
           "link": "/",
           "icon": "anticon-exception",
+          "acl": "role-a",
           "children": [{
               "text": "403",
               "link": "/exception/403",
@@ -276,6 +257,7 @@
       "i18n": "menu.more",
       "group": true,
       "hideInBreadcrumb": true,
+      "acl": "role-a",
       "children": [{
           "text": "Report",
           "i18n": "menu.report",

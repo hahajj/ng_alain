@@ -15,7 +15,7 @@ export class ProBasicListComponent implements OnInit {
   };
   loading = false;
   pageTotal = 1;
-  pageSize = 3;
+  pageSize = 10;
   pageNum = 1;
   myTask: number;
 

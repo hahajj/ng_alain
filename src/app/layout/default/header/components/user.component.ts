@@ -1,6 +1,6 @@
 import { Component, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import { SettingsService } from '@delon/theme';
+import { SettingsService, _HttpClient } from '@delon/theme';
 import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
 
 @Component({
@@ -20,10 +20,6 @@ import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
           <i nz-icon nzType="setting" class="mr-sm"></i>
           {{ 'menu.account.settings' | translate }}
         </div>
-        <div nz-menu-item routerLink="/exception/trigger">
-          <i nz-icon nzType="close-circle" class="mr-sm"></i>
-          {{ 'menu.account.trigger' | translate }}
-        </div>
         <li nz-menu-divider></li>
         <div nz-menu-item (click)="logout()">
           <i nz-icon nzType="logout" class="mr-sm"></i>
@@ -39,12 +35,23 @@ export class HeaderUserComponent {
   constructor(
     // public settings: SettingsService,
     private router: Router,
+    public http: _HttpClient,
     @Inject(DA_SERVICE_TOKEN) private tokenService: ITokenService,
   ) { }
 
 
   logout() {
-    this.tokenService.clear();
-    this.router.navigateByUrl(this.tokenService.login_url!);
+    this.http
+      .post('http://192.168.1.229:8022/angular/loginOut', {
+        id: JSON.parse(localStorage.getItem("_token")).id
+      })
+      .subscribe((res: any) => {
+
+        if (res.code == 1) {
+          this.tokenService.clear();
+          this.router.navigateByUrl(this.tokenService.login_url!);
+        }
+      });
+
   }
 }
