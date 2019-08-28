@@ -67,7 +67,7 @@ export class ProAccountCenterComponent implements OnInit, OnDestroy {
   //   this.setActive();
   // }
   ngOnInit(): void {
-    this.http.post('http://192.168.1.229:8022/angular/userInfo', { id: JSON.parse(localStorage.getItem("_token")).id }).subscribe((res: any) => {
+    this.http.post('/angular/userInfo', { id: JSON.parse(localStorage.getItem("_token")).id }).subscribe((res: any) => {
       this.user = res.data.info;
       this.notice = res.data.notice;
       this.tags = res.data.tags

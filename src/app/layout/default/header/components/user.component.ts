@@ -42,7 +42,7 @@ export class HeaderUserComponent {
 
   logout() {
     this.http
-      .post('http://192.168.1.229:8022/angular/loginOut', {
+      .post('/angular/loginOut', {
         id: JSON.parse(localStorage.getItem("_token")).id
       })
       .subscribe((res: any) => {

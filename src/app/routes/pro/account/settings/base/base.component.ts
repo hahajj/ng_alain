@@ -18,7 +18,7 @@ export class ProAccountSettingsBaseComponent implements OnInit {
   constructor(private http: _HttpClient, private cdr: ChangeDetectorRef, private msg: NzMessageService, private router: Router) { }
 
   ngOnInit(): void {
-    zip(this.http.post('http://192.168.1.229:8022/angular/userInfo', { id: JSON.parse(localStorage.getItem("_token")).id }), this.http.get('/geo/province')).subscribe(([user, province]: any) => {
+    zip(this.http.post('/angular/userInfo', { id: JSON.parse(localStorage.getItem("_token")).id }), this.http.get('/geo/province')).subscribe(([user, province]: any) => {
       this.userLoading = false;
       this.user = user.data.info;
       this.provinces = province;
@@ -46,7 +46,7 @@ export class ProAccountSettingsBaseComponent implements OnInit {
     const obj = this.user;
     obj.id = JSON.parse(localStorage.getItem("_token")).id;
     this.http
-      .post('http://192.168.1.229:8022/angular/changeInfo', obj)
+      .post('/angular/changeInfo', obj)
       .subscribe((res: any) => {
         if (res.code == 1) {
           this.msg.success("更新成功！");

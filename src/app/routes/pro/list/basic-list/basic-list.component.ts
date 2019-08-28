@@ -44,7 +44,7 @@ export class ProBasicListComponent implements OnInit {
 
   getData() {
     this.loading = true;
-    this.http.post('http://192.168.1.229:8022/angular/apiList', { id: JSON.parse(localStorage.getItem("_token")).id, pageNum: this.pageNum, pageSize: this.pageSize }).subscribe((res: any) => {
+    this.http.post('/angular/apiList', { id: JSON.parse(localStorage.getItem("_token")).id, pageNum: this.pageNum, pageSize: this.pageSize }).subscribe((res: any) => {
       this.myTask = res.counts
       this.data = res.data.list;
       this.pageTotal = res.data.total;
@@ -63,7 +63,7 @@ export class ProBasicListComponent implements OnInit {
       // }
       // this.cdr.detectChanges();
       res.userId = JSON.parse(localStorage.getItem("_token")).id
-      this.http.post('http://192.168.1.229:8022/angular/addApiList', res).subscribe((resp: any) => {
+      this.http.post('/angular/addApiList', res).subscribe((resp: any) => {
         if (resp.code == 1) {
           this.getData()
         } else {

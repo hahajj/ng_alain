@@ -135,7 +135,7 @@ export class UserLoginComponent implements OnDestroy {
     // }
 
     this.http
-      .post('http://192.168.1.229:8022/angular/login', {
+      .post('/angular/login', {
         // type: this.type,
         mobile: '',
         userName: this.userName.value,

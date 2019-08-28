@@ -21,7 +21,7 @@ export class SidebarComponent {
 
   ngOnInit() {
     this.http
-      .post('http://192.168.1.229:8022/angular/recordList', {
+      .post('/angular/recordList', {
         id: JSON.parse(localStorage.getItem("_token")).id
       })
       .subscribe((res: any) => {

@@ -38,7 +38,7 @@ const CODEMESSAGE = {
  */
 @Injectable()
 export class DefaultInterceptor implements HttpInterceptor {
-  constructor(private injector: Injector) {}
+  constructor(private injector: Injector) { }
 
   private get notification(): NzNotificationService {
     return this.injector.get(NzNotificationService);
@@ -106,12 +106,16 @@ export class DefaultInterceptor implements HttpInterceptor {
     }
     return of(ev);
   }
-
+  // 请求头 服务器前缀
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // 统一加上服务端前缀
+    // 统一加上服务端前缀 
     let url = req.url;
-    if (!url.startsWith('https://') && !url.startsWith('http://')) {
+    console.log(url)
+    console.log(url.startsWith('/'))
+    if (!url.startsWith('/')) {
       url = environment.SERVER_URL + url;
+    } else {
+      url = "http://192.168.1.229:8022" + url
     }
 
     const newReq = req.clone({ url });

@@ -13,7 +13,7 @@ export class ProAccountCenterArticlesComponent {
 
   constructor(private http: _HttpClient, private cdr: ChangeDetectorRef) {
     console.log(this.imgSrc)
-    this.http.post('http://192.168.1.229:8022/angular/articles', { pageNum: 8, id: JSON.parse(localStorage.getItem("_token")).id }).subscribe((res: any) => {
+    this.http.post('/angular/articles', { pageNum: 8, id: JSON.parse(localStorage.getItem("_token")).id }).subscribe((res: any) => {
       this.list = res.data;
       this.cdr.detectChanges();
     });
